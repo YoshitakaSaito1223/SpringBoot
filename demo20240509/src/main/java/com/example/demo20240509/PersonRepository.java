@@ -34,6 +34,7 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
 	List<Person> findByNameOrAddress(String name,String Address);
 
 	
+	
 	@Query("SELECT p FROM Person p WHERE (:name IS NULL OR p.name = :name) AND "
 			+ "(:address IS NULL OR p.address = :address) AND "
 			+ "(:age = 0 OR p.age = :age) AND "
