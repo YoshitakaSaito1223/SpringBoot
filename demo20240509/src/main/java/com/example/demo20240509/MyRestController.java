@@ -1,11 +1,15 @@
 package com.example.demo20240509;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MyRestController {
+	
+	@Autowired
+	BandRepository bandRep;
 	
 	@GetMapping("/weather")
 	public WeatherReport getWeather() {
@@ -35,6 +39,11 @@ public class MyRestController {
 		return weatherReport;
 	}
 	
-//	@GetMapping("/")
+	@GetMapping("/bandapi/{name}")
+	public BandApi getAboutBand(@PathVariable String name) {
+		BandApi band = bandRep.findByName(name);
+		
+		return band;
+	}
 	
 }
