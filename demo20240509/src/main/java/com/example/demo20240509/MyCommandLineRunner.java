@@ -1,5 +1,9 @@
 package com.example.demo20240509;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,9 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
 	@Autowired
 	PersonRepository personRepository;
+	
+	@Autowired
+	BandRepository bandRep;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -83,8 +90,33 @@ public class MyCommandLineRunner implements CommandLineRunner {
 //		
 //		personRepository.updateAddress("ローマ", "Rome");
 		
+
+		List<BandApi> band=readBandApisFromCSV("C:/Users/yoshitaka.saito/git/リポジトリー/demo20240509/src/main/resources/static/jpBand.csv");
+		for (BandApi b:band) {
+			bandRep.save(b);
+		}
+		
+		
 		
 		System.out.println("コマンドラインランナー実行終了");
 	}
+	
+	public List<BandApi> readBandApisFromCSV(String filePath) {
+        List<BandApi> BandApis = new ArrayList<BandApi>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(",");
+                String name = data[0];
+                String member = data[1];
+                String date = data[2];
+                String about =data[3];
+                BandApis.add(new BandApi(name, member, date,about));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return BandApis;
+    }
 
 }
