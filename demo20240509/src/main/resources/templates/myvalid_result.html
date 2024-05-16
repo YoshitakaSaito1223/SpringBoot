@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <div th:replace="~{common/meta_head :: common-meta}">common meta data</div>
+    <title>title</title>
+</head>
+
+<body>
+    <header th:replace="~{common/header :: common}">common header</header>
+    <main>
+       <div class="container">
+        <div class="row" th:object="${myValidation}">
+            <!-- <h3 th:text="'Nullは' + *{isNull} + 'です'"></h3> -->
+            <h3 th:text="'NotNullは' + *{isNotNull} + 'です'"></h3>
+            <h3 th:text="'Rangeは' + *{isOptRange} + 'です'"></h3>
+            <h3 th:text="'Minは' + *{moreThan20} + 'です'"></h3>
+            <!-- <h3 th:text="'Dateは' + *{birthday} + 'です'"></h3> -->
+
+        </div>
+
+       </div>
+
+
+    </main>
+    <footer th:replace="~{common/footer :: common}">common footer</footer>
+    <div th:replace="~{common/meta_script :: common-script}">common-script</div>
+</body>
+
+</html>

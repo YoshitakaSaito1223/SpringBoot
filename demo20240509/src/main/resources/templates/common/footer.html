@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<footer class="page-footer cyan" th:fragment="common">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Spring Boot Page</h5>
+              <p class="grey-text text-lighten-4">This site is created by Yoshitaka Saito for learning Spring Boot.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" th:href="@{/demo}">demo</a></li>
+                <li><a class="grey-text text-lighten-3" th:href="@{/aboutme}">about me</a></li>
+                <li><a class="grey-text text-lighten-3" th:href="@{/sample_inputForm}">sample input form</a></li>
+                <li><a class="grey-text text-lighten-3" th:href="@{/sample_postForm}">sample post form</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2024 Yoshitaka Saito All rights reserved.
+          <a class="grey-text text-lighten-4 right" th:href="@{/}">home </a>
+          </div>
+        </div>
+</footer>
+
+</html>

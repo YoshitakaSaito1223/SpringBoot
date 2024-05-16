@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <div th:replace="~{common/meta_head :: common-meta}">common meta data</div>
+    <title>title</title>
+</head>
+
+<body>
+    <header th:replace="~{common/header :: common}">common header</header>
+    <main>
+        <div class="container">
+            <h1>My Validation Page</h1>
+            <form th:action="@{/myvalid_result}" th:object="${myValidation}" method="post">
+                <div class="row">
+                    <div>
+                        <!-- <div class="input-field col s6">
+                            <input type="text" name="isNull" th:field="*{isNull}">
+                            <label class="active" th:text="*{descNull}"></label>
+                            <div th:if="${#fields.hasErrors('isNull')}" th:errors="*{isNull}" style="color: red;"></div>
+                        </div> -->
+                        <div class="input-field col s6">
+                            <input type="text" name="isNotNull" th:field="*{isNotNull}">
+                            <label class="active" th:text="*{descNotNull}"></label>
+                            <div th:if="${#fields.hasErrors('isNotNull')}" th:errors="*{isNotNull}" style="color: red;"></div>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text" name="isOptRange" th:field="*{isOptRange}">
+                            <label class="active" th:text="*{descRange}"></label>
+                            <div th:if="${#fields.hasErrors('isOptRange')}" th:errors="*{isOptRange}" style="color: red;"></div>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text" name="MoreThan20" th:field="*{MoreThan20}">
+                            <label class="active" th:text="*{descMin}"></label>
+                            <div th:if="${#fields.hasErrors('MoreThan20')}" th:errors="*{MoreThan20}" style="color: red;"></div>
+                        </div>
+                        <!-- <div class="input-field col s6">
+                            <input type="text" name="birthday" th:field="*{birthday}">
+                            <label class="active" th:text="*{descDate}"></label>
+                            <div th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" style="color: red;"></div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="waves-effect waves-light btn">Submit</button>
+                </div>
+            </form>
+        </div>
+
+
+    </main>
+    <footer th:replace="~{common/footer :: common}">common footer</footer>
+    <div th:replace="~{common/meta_script :: common-script}">common-script</div>
+</body>
+
+</html>

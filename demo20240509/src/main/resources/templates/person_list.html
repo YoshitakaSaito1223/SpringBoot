@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <div th:replace="~{common/meta_head :: common-meta}">common meta data</div>
+    <title>Person List</title>
+</head>
+
+<body>
+    <header th:replace="~{common/header :: common}">common header</header>
+    <main>
+        <div class="container">
+
+            <table class="highlight striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="person:${people}">
+                        <td th:text="${person.id}"></td>
+                        <td th:text="${person.name}"></td>
+                        <td th:text="${person.age}"></td>
+                        <td th:text="${person.address}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </main>
+    <footer th:replace="~{common/footer :: common}">common footer</footer>
+    <div th:replace="~{common/meta_script :: common-script}">common-script</div>
+</body>
+
+</html>

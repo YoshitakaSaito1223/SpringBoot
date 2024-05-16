@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <div th:replace="~{common/meta_head :: common-meta}">common meta data</div>
+    <title>title</title>
+</head>
+
+<body>
+    <header th:replace="~{common/header :: common}">common header</header>
+
+    <main>
+        <div class="container">
+            <h1>下記の書き方は、Formのプロパティを別々に扱う方法です</h1>
+            <h1 th:text="'パラメータAは' + ${form.paramA} + 'です'"></h1>
+            <h1 th:text="'パラメータBは' + ${form.paramB} + 'です'"></h1>
+            <h1 th:text="'パラメータCは' + ${form.paramC} + 'です'"></h1>
+
+            <h1>下記の書き方は、Formをまとめて扱う方法です</h1>
+            <div th:object="${form}">
+                <h1 th:text="'パラメータAは' + *{paramA} + 'です'"></h1>
+                <h1 th:text="'パラメータBは' + *{paramB} + 'です'"></h1>
+                <h1 th:text="'パラメータCは' + *{paramC} + 'です'"></h1>
+            </div>
+        </div>
+    </main>
+
+    <footer th:replace="~{common/footer :: common}">common footer</footer>
+    <div th:replace="~{common/meta_script :: common-script}">common-script</div>
+</body>
+
+</html>

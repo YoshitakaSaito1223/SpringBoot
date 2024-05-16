@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>はじめてのSpringBoot</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+	<div th:replace="~{common/header :: common}">common header</div>
+
+	<main>
+		<div class="container">
+			<h3 th:text="${greeting}"></h3>
+			<h1>Welcome to Demo Page</h1>
+			<p>This is a sample webpage created using Materialize CSS framework and Spring Boot Java framework.</p>
+
+			<div class="row">
+				<img th:src="@{desk.jpg}" class="col s12 m3">
+				<img th:src="@{stars.jpg}" class="col s12 m3">
+				<img th:src="@{illust.jpg}" class="col s12 m3">
+				<img th:src="@{interia.jpg}" class="col s12 m3">
+			</div>
+		</div>
+	</main>
+	<footer th:replace="~{common/footer :: common}">common footer</footer>
+
+	<div th:replace="~{common/meta_script :: common-script}">common-script</div>
+</body>
+
+</html>

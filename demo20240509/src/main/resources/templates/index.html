@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<div th:replace="~{common/meta_head :: common-meta}">common meta data</div>
+	<title>HomePage</title>
+</head>
+
+<body>
+
+	<main>
+		<header th:replace="~{common/header :: common}">common header</header>
+
+		<div class="container">
+			<h3 th:text="${greeting}"></h3>
+			<h1>Welcome to index Page</h1>
+			<p>This is a sample webpage created using Materialize CSS framework and Spring Boot Java framework.</p>
+			<div class="row">
+				<div class="col s12 m6">
+					<div class="card teal lighten-1">
+						<div class="card-content white-text">
+							<span class="card-title" th:text="${title_Sp}">Sp title</span>
+							<p th:text="${description_Sp}">Description of Spring Boot</p>
+						</div>
+						<div class="card-action">
+							<a th:href="@{https://spring.io/projects/spring-boot}" class=" text-light-blue">Learn More</a>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m6">
+					<div class="card red lighten-2">
+						<div class="card-content white-text">
+							<span class="card-title" th:text="${title_Mt}">Mt title</span>
+							<p th:text="${description_Mt}">Description of Materialize</p>
+						</div>
+						<div class="card-action">
+							<a th:href="@{https://materializecss.com/}" class=" text-light-blue">Learn More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row collection">
+				<a th:href="@{/demo}" class="collection-item">Demo Page</a>
+				<a th:href="@{/aboutme}" class="collection-item">About Me Page</a>
+				<a th:href="@{/sample_inputForm}" class="collection-item">Sample Input Form Page by GET Method</a>
+				<a th:href="@{/sample_postForm}" class="collection-item">Sample Input Form Page by POST Method</a>
+				<a th:href="@{/validation}" class="collection-item">Sample Input Form Validated</a>
+				<a th:href="@{/myvalidation}" class="collection-item">my Input Form Validated</a>
+				<a th:href="@{/person_list}" class="collection-item">print person list</a>
+				<a th:href="@{/database}" class="collection-item">DATABASE sample</a>
+			</div>
+			<div class="row">
+				<img th:src="@{desk.jpg}" class="col s12 m3">
+				<img th:src="@{stars.jpg}" class="col s12 m3">
+				<img th:src="@{illust.jpg}" class="col s12 m3">
+				<img th:src="@{interia.jpg}" class="col s12 m3">
+			</div>
+
+		</div>
+
+	</main>
+
+	<footer th:replace="~{common/footer :: common}">common footer</footer>
+
+	<div th:replace="~{common/meta_script :: common-script}">common-script</div>
+</body>
+
+</html>

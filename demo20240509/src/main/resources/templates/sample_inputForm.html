@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <div th:replace="~{common/meta_head :: common-meta}">common meta data</div>
+    <title>Sample Get Method Form</title>
+</head>
+
+<body>
+    <header th:replace="~{common/header :: common}">common header</header>
+    <main>
+        <div class="container">
+            <h1 th:text="${title}"></h1>
+            <form method="get" th:action="@{/sample_result}">
+                <p>パラメータA:<input type="text" name="paramA"></p>
+                <p>パラメータB:<input type="text" name="paramB"></p>
+                <p>パラメータC:<input type="text" name="paramC"></p>
+                <input type="submit" value="送信">
+            </form>
+        </div>
+    </main>
+    <footer th:replace="~{common/footer :: common}">common footer</footer>
+    <div th:replace="~{common/meta_script :: common-script}">common-script</div>
+</body>
+
+</html>

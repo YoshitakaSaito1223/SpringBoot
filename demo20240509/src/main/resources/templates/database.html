@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <div th:replace="~{common/meta_head :: common-meta}">common meta data</div>
+    <title>DATABASE test</title>
+</head>
+
+<body>
+    <header th:replace="~{common/header :: common}">common header</header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <blockquote>
+                    <h1>DATABASE Controll Sample</h1>
+                </blockquote>
+            </div>
+            <div class="row">
+                <form method="post" th:action="@{/database}">
+                    <div class="input-field col m6">
+                        <input placeholder="Search name" id="name" type="text" name="name">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="input-field col m6">
+                        <input placeholder="Search Address" id="address" type="text" name="address">
+                        <label for="name">Address</label>
+                    </div>
+                    <div class="input-field col m6">
+                        <input placeholder="Search Age" id="age" type="number" name="age">
+                        <label for="name">Age</label>
+                    </div>
+                    <div class="input-field col m6">
+                        <input placeholder="Search Id" id="id" type="number" name="id">
+                        <label for="name">ID</label>
+                    </div>
+                    <div class="col m1 offset-m11">
+                        <button type="submit" class="waves-effect waves-light btn">Search</button>
+                    </div>
+                </form>
+            </div>
+
+
+            <table class="highlight striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="person:${people}">
+                        <td th:text="${person.id}"></td>
+                        <td th:text="${person.name}"></td>
+                        <td th:text="${person.age}"></td>
+                        <td th:text="${person.address}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+    </main>
+    <footer th:replace="~{common/footer :: common}">common footer</footer>
+    <div th:replace="~{common/meta_script :: common-script}">common-script</div>
+</body>
+
+</html>
